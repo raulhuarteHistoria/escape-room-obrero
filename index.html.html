@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El archivo secreto de la Sección Orden Social</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:#F5F4F0;color:#1A1A18;min-height:100vh;padding:1.5rem}
+.wrap{max-width:700px;margin:0 auto}
+.badge{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;margin-bottom:10px}
+.b-anar{background:#FAECE7;color:#712B13}
+.b-soc{background:#E6F1FB;color:#0C447C}
+.b-sind{background:#EAF3DE;color:#27500A}
+.b-est{background:#F1EFE8;color:#444441}
+.b-mix{background:#EEEDFE;color:#3C3489}
+.b-man{background:#FFF3CD;color:#664D03}
+.era-badge{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:4px;margin-bottom:12px;margin-right:6px}
+.era1{background:#FAECE7;color:#993C1D}
+.era2{background:#FAEEDA;color:#854F0B}
+.era3{background:#EAF3DE;color:#3B6D11}
+.card{background:#fff;border:1px solid #E0DED8;border-radius:14px;padding:1.5rem;margin-bottom:1rem;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.phase-lbl{font-size:12px;font-weight:600;color:#888780;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid #E0DED8}
+.ctitle{font-size:16px;font-weight:600;color:#1A1A18;margin-bottom:.35rem}
+.csub{font-size:13px;color:#666660;line-height:1.65;margin-bottom:1rem}
+.src{background:#F5F4F0;border-left:3px solid #888780;padding:.8rem 1rem;font-size:13px;font-style:italic;color:#1A1A18;line-height:1.8;margin-bottom:.6rem;border-radius:0 6px 6px 0}
+.src-credit{font-size:11px;font-style:normal;color:#888780;margin-top:.4rem}
+.qtext{font-size:14px;font-weight:600;color:#1A1A18;margin:1rem 0 .7rem}
+.opts{display:flex;flex-direction:column;gap:.45rem;margin-bottom:.75rem}
+.obtn{background:#fff;border:1.5px solid #D3D1C7;border-radius:8px;padding:.55rem 1rem;font-size:13px;text-align:left;cursor:pointer;color:#1A1A18;transition:all .15s;font-family:inherit}
+.obtn:hover:not(:disabled){background:#F5F4F0;border-color:#888780}
+.obtn:disabled{cursor:default}
+.obtn.correct{background:#EAF3DE;border-color:#639922;color:#27500A;font-weight:500}
+.obtn.wrong{background:#FCEBEB;border-color:#E24B4A;color:#791F1F}
+.fb{font-size:13px;padding:.65rem 1rem;border-radius:8px;margin-top:.5rem;line-height:1.6;display:none}
+.fb.show{display:block}
+.fb.ok{background:#EAF3DE;color:#27500A}
+.fb.fail{background:#FCEBEB;color:#791F1F}
+.prog-wrap{display:flex;gap:6px;align-items:center;margin-bottom:1.25rem}
+.pip{flex:1;height:6px;border-radius:3px;background:#E0DED8}
+.pip.done{background:#639922}
+.pip.active{background:#185FA5}
+.sc{font-size:13px;color:#888780;white-space:nowrap;margin-left:8px}
+.navrow{display:flex;gap:.75rem;margin-top:1.1rem;flex-wrap:wrap}
+.nbtn{padding:.5rem 1.2rem;font-size:13px;border:1.5px solid #D3D1C7;border-radius:8px;background:#fff;cursor:pointer;color:#1A1A18;font-family:inherit;transition:all .15s}
+.nbtn:hover{background:#F5F4F0}
+.nbtn.pri{background:#185FA5;color:#fff;border-color:#185FA5}
+.nbtn.pri:hover{background:#0C447C}
+.ht{font-size:12px;color:#888780;cursor:pointer;text-decoration:underline;margin-top:.6rem;display:inline-block}
+.hbox{font-size:12px;color:#666660;background:#F5F4F0;border-radius:8px;padding:.5rem .8rem;margin-top:.4rem;display:none;line-height:1.55}
+.hbox.show{display:block}
+/* intro */
+.intro-title{font-size:24px;font-weight:700;color:#1A1A18;margin-bottom:.5rem;line-height:1.3}
+.intro-sub{font-size:14px;color:#185FA5;margin-bottom:1rem}
+.intro-body{font-size:14px;color:#444441;line-height:1.75;margin-bottom:1.25rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.5rem}
+.stat{background:#F5F4F0;border-radius:10px;padding:.75rem;text-align:center}
+.stat-n{font-size:24px;font-weight:700;color:#1A1A18}
+.stat-l{font-size:11px;color:#888780;margin-top:2px}
+/* final */
+.final-wrap{text-align:center;padding:2rem 1rem}
+.fs{font-size:44px;font-weight:700;color:#1A1A18;margin:1rem 0 .5rem}
+.fmsg{font-size:14px;color:#666660;line-height:1.65;max-width:440px;margin:0 auto 1.5rem}
+.code-disp{font-size:22px;letter-spacing:.2em;font-weight:700;background:#F5F4F0;border:1.5px solid #D3D1C7;border-radius:10px;padding:.8rem 1.8rem;display:inline-block;margin-bottom:1.5rem;color:#1A1A18}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div id="intro">
+  <div class="card">
+    <div style="font-size:12px;font-weight:600;color:#888780;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.75rem">Historia · 5to año · Escape room</div>
+    <div class="intro-title">El archivo secreto de la Sección Orden Social</div>
+    <div class="intro-sub">Buenos Aires, 1930</div>
+    <div class="intro-body">La policía porteña cierra sus archivos secretos sobre el movimiento obrero de las últimas cinco décadas. Tu grupo representa a un equipo de historiadores infiltrado en la Sección Orden Social. Tienen 8 legajos clasificados con fuentes reales. Deben identificar corrientes, analizar estrategias y descifrar el código final que abre la caja fuerte del archivo.</div>
+    <div class="stats">
+      <div class="stat"><div class="stat-n">8</div><div class="stat-l">desafíos</div></div>
+      <div class="stat"><div class="stat-n">3</div><div class="stat-l">épocas históricas</div></div>
+      <div class="stat"><div class="stat-n">4</div><div class="stat-l">corrientes obreras</div></div>
+    </div>
+    <button class="nbtn pri" onclick="startGame()">Ingresar al archivo →</button>
+  </div>
+</div>
+
+<div id="game" style="display:none">
+  <div class="prog-wrap">
+    <div id="p0" class="pip"></div><div id="p1" class="pip"></div><div id="p2" class="pip"></div><div id="p3" class="pip"></div>
+    <div id="p4" class="pip"></div><div id="p5" class="pip"></div><div id="p6" class="pip"></div><div id="p7" class="pip"></div>
+    <div class="sc" id="sc">Aciertos: 0 / 8</div>
+  </div>
+  <div id="cc"></div>
+</div>
+
+<div id="final" style="display:none">
+  <div class="card final-wrap">
+    <div style="font-size:13px;color:#888780;margin-bottom:.5rem">Informe de los historiadores</div>
+    <div class="fs" id="fsn">0/8</div>
+    <div class="fmsg" id="fmsg"></div>
+    <div style="font-size:13px;color:#888780;margin-bottom:.6rem">Código de la caja fuerte:</div>
+    <div class="code-disp" id="fcode">— — — — — — — —</div>
+    <br>
+    <button class="nbtn" onclick="restart()" style="margin-top:.5rem">Reiniciar</button>
+  </div>
+</div>
+</div>
+
+<script>
+const CH=[
+  {
+    era:"Época 1 — El apogeo anarquista (1890-1905)",eraClass:"era1",
+    phase:"Legajo 1 de 8 — La voz de la FORA",
+    badge:"Fuente primaria",bClass:"b-anar",
+    title:"Manifiesto de la Federación Obrera Regional Argentina",
+    ctx:"Volante hallado en una imprenta de San Telmo. Buenos Aires, 1904.",
+    sources:[{t:"«El Estado no puede ser reformado: debe ser destruido. No pedimos leyes porque las leyes son las cadenas del proletariado. La única táctica legítima es la acción directa: la huelga, el boicot, el sabotaje. Ningún obrero consciente debe votar ni presentarse a elección alguna.»",c:"Adaptado de manifiestos de la FORA V Congreso, 1905. En: Suriano, J. (2001). Anarquistas. Manantial."}],
+    q:"¿A qué corriente pertenece este documento y cuál es su rasgo más distintivo?",
+    opts:["Socialismo: apuesta al parlamento y a las leyes","Anarquismo: rechazo total al Estado y a la política electoral","Sindicalismo: negociación con el patrón para mejorar condiciones","Comunismo: toma del poder estatal por la clase obrera"],
+    cor:1,
+    fok:"✓ Correcto. El rechazo absoluto al Estado, la acción directa y la negativa a participar en elecciones son los rasgos centrales del anarquismo. La FORA adoptó el comunismo anárquico como orientación en su V Congreso (1905) y fue la central obrera dominante hasta ca. 1915.",
+    ffail:"✗ Revisá el fragmento: «destruir el Estado», «no votar», «acción directa». Esos tres elementos juntos son la marca del anarquismo, no del socialismo (que votaba) ni del sindicalismo (que negociaba).",
+    hint:"¿Qué corriente rechaza votar, rechaza las leyes y apuesta solo a la acción directa?",
+    cl:"S"
+  },
+  {
+    era:"Época 1 — El apogeo anarquista (1890-1905)",eraClass:"era1",
+    phase:"Legajo 2 de 8 — El otro camino",
+    badge:"Manual",bClass:"b-man",
+    title:"El Partido Socialista y la vía parlamentaria",
+    ctx:"Fragmento de manual. Contexto: fundación del PS en 1896.",
+    sources:[{t:"«Juan B. Justo fundó el Partido Socialista con la convicción de que los trabajadores debían conquistar el Estado desde adentro, no destruirlo. El PS impulsó proyectos de ley de jornada laboral, descanso dominical y protección de la mujer trabajadora. Con la Ley Sáenz Peña de 1912, los socialistas lograron sus primeras bancas en el Congreso y presentaron decenas de proyectos de legislación laboral.»",c:"Adaptado de Lobato, M.Z. y Suriano, J. (2000). Nueva Historia Argentina, tomo 5. Sudamericana."}],
+    q:"Según el texto, ¿en qué se diferenciaba el socialismo del anarquismo respecto al Estado?",
+    opts:["Ambos rechazaban el Estado pero por razones distintas","El socialismo quería conquistar el Estado; el anarquismo quería destruirlo","El socialismo era más violento que el anarquismo","El anarquismo aceptaba votar si había candidatos obreros"],
+    cor:1,
+    fok:"✓ Exacto. Esa diferencia estratégica fue la gran fractura de la izquierda obrera argentina: ¿se usa el Estado o se elimina? Los socialistas eligieron usarlo. Eso los hacía 'reformistas' a ojos de los anarquistas, y 'más realistas' a ojos de muchos trabajadores.",
+    ffail:"✗ El texto dice explícitamente: los socialistas querían «conquistar el Estado desde adentro». Los anarquistas, como viste en el legajo anterior, querían destruirlo. Esa es la diferencia central.",
+    hint:"Una corriente quiere usar el Estado para cambiar las cosas. La otra quiere que el Estado desaparezca.",
+    cl:"I"
+  },
+  {
+    era:"Época 1 — El apogeo anarquista (1890-1905)",eraClass:"era1",
+    phase:"Legajo 3 de 8 — El Estado responde",
+    badge:"Fuente primaria",bClass:"b-est",
+    title:"Ley de Residencia N° 4144 — Circular policial",
+    ctx:"Circular del Ministerio del Interior a los jefes de policía. 1902.",
+    sources:[{t:"«En virtud de la Ley N° 4144, el Poder Ejecutivo queda facultado para expulsar del territorio nacional a todo extranjero cuya presencia se considere peligrosa para la seguridad nacional o el orden público, sin necesidad de proceso judicial previo ni expresión de causa. Los señores jefes de policía procederán de inmediato ante cualquier agitación de origen foráneo.»",c:"Adaptado de documentación del Ministerio del Interior, 1902. En: Godio, J. (2000). Historia del movimiento obrero argentino. Corregidor."}],
+    q:"¿Qué revela esta fuente sobre la posición del Estado oligárquico frente al movimiento obrero?",
+    opts:["El Estado era neutral y solo intervenía cuando había violencia","El Estado reprimía selectivamente a los trabajadores inmigrantes mediante la expulsión","El Estado buscaba integrar a los trabajadores a la vida política","El Estado apoyaba al sindicalismo moderado como alternativa al anarquismo"],
+    cor:1,
+    fok:"✓ Muy bien. La Ley de Residencia de 1902 era una herramienta de represión específicamente diseñada contra los obreros inmigrantes (italianos, españoles), que eran la columna vertebral del sindicalismo anarquista. Se complementó en 1910 con la Ley de Defensa Social.",
+    ffail:"✗ Una ley que permite expulsar personas sin juicio previo no es neutralidad: es represión. Apuntaba a los extranjeros porque la mayoría de los militantes obreros eran inmigrantes. El Estado oligárquico no era árbitro: era parte del conflicto.",
+    hint:"¿Una ley que expulsa extranjeros sin juicio habla de neutralidad o de represión?",
+    cl:"N"
+  },
+  {
+    era:"Época 2 — La crisis del anarquismo y el ascenso sindicalista (1905-1918)",eraClass:"era2",
+    phase:"Legajo 4 de 8 — La fractura de la FORA",
+    badge:"Fuente primaria + manual",bClass:"b-mix",
+    title:"Dos FORA, dos estrategias",
+    ctx:"En 1915 el movimiento obrero se divide formalmente. Dos documentos de ese momento.",
+    sources:[
+      {t:"Doc. A — FORA V (anarcocomunista): «Rechazamos el IX Congreso y su deriva colaboracionista. El sindicato no puede ser un fin en sí mismo ni un instrumento de negociación con el Capital. Todo contrato colectivo es una tregua que legitima la explotación. Solo la abolición del salariado nos libera.»",c:"Adaptado de resoluciones de la FORA V Congreso, 1915. En: Suriano, J. (2001). Anarquistas. Manantial."},
+      {t:"Doc. B — FORA IX (sindicalista): «El sindicato es la herramienta central de la clase obrera. Nuestro objetivo inmediato es la mejora de las condiciones de trabajo: salario, jornada, higiene. Para eso, el contrato colectivo y el reconocimiento patronal son victorias concretas, no traiciones.»",c:"Adaptado de resoluciones de la FORA IX Congreso, 1915. En: Belini, C. y Korol, J.C. (2012). Historia económica de la Argentina. Siglo XXI."}
+    ],
+    q:"¿Cuál es la diferencia central entre los dos documentos?",
+    opts:["Doc. A acepta negociar; Doc. B rechaza toda negociación","Doc. A rechaza todo acuerdo con el Capital; Doc. B acepta el contrato colectivo como victoria concreta","Ambos documentos tienen la misma estrategia, solo difieren en el tono","Doc. B es más radical porque menciona la jornada laboral"],
+    cor:1,
+    fok:"✓ Perfecto. Esa es la fractura de 1915: la FORA V (anarquista) rechaza todo acuerdo; la FORA IX (sindicalista) acepta el contrato colectivo como herramienta legítima. Es el momento en que el sindicalismo empieza a desplazar al anarquismo como corriente dominante.",
+    ffail:"✗ Releé los documentos: el Doc. A dice que el contrato «legitima la explotación»; el Doc. B dice que es «una victoria concreta». Esa diferencia sobre el contrato colectivo es el corazón de la fractura.",
+    hint:"¿Cuál de los dos documentos acepta firmar acuerdos con los patrones? Ese es el sindicalista.",
+    cl:"D"
+  },
+  {
+    era:"Época 2 — La crisis del anarquismo y el ascenso sindicalista (1905-1918)",eraClass:"era2",
+    phase:"Legajo 5 de 8 — La Semana Trágica",
+    badge:"Fuente primaria",bClass:"b-anar",
+    title:"Testimonio de un obrero metalúrgico — enero de 1919",
+    ctx:"Declaración tomada por la policía a un trabajador de los talleres Vasena, Buenos Aires, enero de 1919.",
+    sources:[{t:"«Empezamos la huelga el 2 de enero por los salarios y las diez horas. El 7 nos dispararon en el velatorio de los compañeros muertos. Ahí se generalizó todo. No era solo Vasena: era el barrio entero, era la rabia de años. Los de la FORA vinieron a organizarnos pero ya no necesitábamos que nos organizaran: ya estábamos en la calle.»",c:"Testimonio ficcionalizado basado en declaraciones recopiladas en: Bilsky, E. (1984). La Semana Trágica. CEAL."}],
+    q:"¿Qué nos dice este testimonio sobre el conflicto de la Semana Trágica de 1919?",
+    opts:["Fue un conflicto organizado de arriba hacia abajo por la dirección sindical","Fue una respuesta espontánea de los trabajadores que desbordó a las propias organizaciones","Fue un intento de revolución socialista planificada","Fue provocado exclusivamente por agitadores extranjeros según los propios obreros"],
+    cor:1,
+    fok:"✓ Correcto. El testimonio muestra algo crucial: «ya no necesitábamos que nos organizaran». La Semana Trágica fue un estallido que superó a las organizaciones formales. Ese desbordamiento asustó tanto al Estado como a la propia dirigencia sindical y aceleró la búsqueda de canales de negociación.",
+    ffail:"✗ El obrero dice «ya estábamos en la calle» antes de que llegara la FORA. Eso indica que el conflicto desbordó a la organización, no que fue organizado por ella.",
+    hint:"¿Quién llegó primero: los obreros a la calle, o la organización sindical a organizarlos?",
+    cl:"I"
+  },
+  {
+    era:"Época 2 — La crisis del anarquismo y el ascenso sindicalista (1905-1918)",eraClass:"era2",
+    phase:"Legajo 6 de 8 — El Estado cambia de táctica",
+    badge:"Manual",bClass:"b-man",
+    title:"El gobierno radical y la cuestión obrera",
+    ctx:"Fragmento de manual. Período: presidencia de Yrigoyen (1916-1922).",
+    sources:[{t:"«El gobierno de Yrigoyen inauguró una nueva relación entre el Estado y los sindicatos: la mediación. En varios conflictos, el Estado intervino para arbitrar entre obreros y patrones, legitimando implícitamente a los sindicatos como interlocutores. Esta política fue aprovechada principalmente por el sindicalismo revolucionario, que a diferencia del anarquismo estaba dispuesto a sentarse a negociar. Sin embargo, la misma política tuvo su cara represiva: durante la Semana Trágica (1919) y la Patagonia Rebelde (1921), el Estado ordenó represiones brutales.»",c:"Adaptado de Lobato, M.Z. y Suriano, J. (2000). Nueva Historia Argentina, tomo 5. Sudamericana."}],
+    q:"Según el texto, ¿por qué el sindicalismo se benefició más que el anarquismo de la política de Yrigoyen?",
+    opts:["Porque el sindicalismo era más violento y el gobierno le tenía miedo","Porque el sindicalismo estaba dispuesto a negociar, mientras el anarquismo rechazaba sentarse con el Estado","Porque Yrigoyen era secretamente sindicalista","Porque el anarquismo había desaparecido para 1916"],
+    cor:1,
+    fok:"✓ Exacto. El Estado radical ofreció mediación, y solo quienes aceptaban negociar podían aprovecharla. El anarquismo, por principio, no podía sentarse a negociar con el Estado. El sindicalismo sí. Eso explica el desplazamiento gradual del anarquismo como corriente dominante.",
+    ffail:"✗ El texto lo dice claramente: el sindicalismo «estaba dispuesto a sentarse a negociar» y el anarquismo no. Cuando el Estado ofrece mediación, quienes se benefician son los que aceptan participar.",
+    hint:"Si el Estado ofrece negociar, ¿qué corriente puede aprovechar esa oferta: la que acepta o la que rechaza toda negociación?",
+    cl:"C"
+  },
+  {
+    era:"Época 3 — El sindicalismo en ascenso (1918-1930)",eraClass:"era3",
+    phase:"Legajo 7 de 8 — La USS y el nuevo sindicalismo",
+    badge:"Fuente primaria",bClass:"b-sind",
+    title:"Declaración de la Unión Sindical Argentina, 1922",
+    ctx:"La Unión Sindical Argentina (USA) sucedió a la FORA IX. Documento de su congreso fundacional.",
+    sources:[{t:"«La Unión Sindical Argentina no tiene filiación política ni doctrina filosófica. Su único objetivo es la mejora de las condiciones de trabajo a través de la negociación colectiva. Reconocemos al Estado como árbitro legítimo en los conflictos laborales y estamos dispuestos a colaborar con toda legislación que favorezca al trabajador. La huelga es un último recurso, no una táctica permanente.»",c:"Adaptado de estatutos y declaraciones de la Unión Sindical Argentina, 1922. En: Del Campo, H. (1983). Sindicalismo y peronismo. CLACSO."}],
+    q:"Comparando este documento con el manifiesto anarquista del Legajo 1, ¿cuáles son las dos diferencias más importantes?",
+    opts:["No hay diferencias: ambos rechazan la política electoral","La USA acepta al Estado como árbitro y usa la huelga solo como último recurso; la FORA V rechaza el Estado y la huelga es su herramienta permanente","La USA es más radical porque menciona la legislación laboral","Ambos son sindicatos, por lo tanto tienen los mismos objetivos"],
+    cor:1,
+    fok:"✓ Muy bien. Las dos diferencias son precisas: el anarquismo rechaza el Estado y usa la huelga permanentemente; el sindicalismo acepta al Estado como árbitro y reserva la huelga para casos extremos. Entre 1905 y 1930, ese modelo fue ganando terreno hasta convertirse en el dominante.",
+    ffail:"✗ Volvé al Legajo 1 y comparalo con este. Buscá qué dice cada uno sobre (1) el Estado y (2) cuándo usar la huelga. Esas son las dos diferencias clave.",
+    hint:"Comparalos en dos puntos: ¿qué dicen sobre el Estado? ¿Y sobre cuándo usar la huelga?",
+    cl:"A"
+  },
+  {
+    era:"Época 3 — El sindicalismo en ascenso (1918-1930)",eraClass:"era3",
+    phase:"Legajo 8 de 8 — Balance del período",
+    badge:"Manual",bClass:"b-man",
+    title:"El legado del movimiento obrero 1880-1930",
+    ctx:"Fragmento de manual. Cierre del período.",
+    sources:[{t:"«Para 1930, el movimiento obrero argentino había atravesado una transformación profunda. El anarquismo, hegemónico hacia 1905, había cedido terreno frente al sindicalismo que privilegiaba la negociación. Aunque ninguna central había logrado que el Estado reconociera formalmente los derechos laborales colectivos, el movimiento obrero había instalado en la agenda pública temas como la jornada de ocho horas, el salario mínimo y las condiciones de higiene. Esa agenda sería retomada, de manera muy distinta, por el peronismo después de 1945.»",c:"Adaptado de Suriano, J. (2001). Anarquistas. Manantial. y Lobato, M.Z. y Suriano, J. (2000). Nueva Historia Argentina. Sudamericana."}],
+    q:"Según el texto, ¿cuál fue el resultado del período para el movimiento obrero?",
+    opts:["El anarquismo triunfó y logró destruir el Estado oligárquico","El sindicalismo negociador ganó peso pero ninguna corriente logró el reconocimiento formal de derechos colectivos; sin embargo instalaron una agenda que perduró","El socialismo se convirtió en la corriente dominante gracias a sus bancas parlamentarias","El movimiento obrero fracasó completamente y no dejó ninguna herencia política"],
+    cor:1,
+    fok:"✓ Exacto. No hubo revolución ni derechos formales, pero sí una agenda instalada — jornada de 8 horas, salario mínimo, condiciones laborales — que el peronismo retomaría con otra lógica en 1945. El movimiento obrero de 1880-1930 sembró; el peronismo cosechó (y también controló).",
+    ffail:"✗ El texto dice que el anarquismo 'cedió terreno', no que triunfó. Y dice que 'ninguna central' logró derechos formales. Pero también dice que instalaron una agenda. El resultado fue parcial: ni triunfo ni fracaso total.",
+    hint:"Buscá en el texto qué pasó con cada corriente y qué quedó como legado, aunque no haya habido victoria formal.",
+    cl:"L"
+  }
+];
+
+let cur=0,score=0,answered=[],letters=[];
+
+function startGame(){
+  document.getElementById('intro').style.display='none';
+  document.getElementById('game').style.display='block';
+  render(0);
+}
+
+function updatePips(i){
+  for(let j=0;j<8;j++){
+    const p=document.getElementById('p'+j);
+    p.className='pip';
+    if(j<i)p.classList.add('done');
+    else if(j===i)p.classList.add('active');
+  }
+}
+
+function render(idx){
+  updatePips(idx);
+  const c=CH[idx];
+  const done=answered[idx]!==undefined;
+  const srcHTML=c.sources.map(s=>`<div class="src">${s.t.replace(/\n/g,'<br>')}<div class="src-credit">${s.c}</div></div>`).join('');
+  const optsHTML=c.opts.map((o,i)=>{
+    let cl='obtn';
+    if(done){if(i===c.cor)cl+=' correct';else if(i===answered[idx]&&i!==c.cor)cl+=' wrong';}
+    return `<button class="${cl}" onclick="check(${idx},${i})" ${done?'disabled':''}>${o}</button>`;
+  }).join('');
+  const fbCl=done?(answered[idx]===c.cor?'ok':'fail'):'';
+  const fbTxt=done?(answered[idx]===c.cor?c.fok:c.ffail):'';
+
+  document.getElementById('cc').innerHTML=`
+    <div class="phase-lbl">${c.phase}</div>
+    <div class="card">
+      <span class="era-badge ${c.eraClass}">${c.era}</span><span class="badge ${c.bClass}">${c.badge}</span>
+      <div class="ctitle">${c.title}</div>
+      <div class="csub">${c.ctx}</div>
+      ${srcHTML}
+      <div class="qtext">${c.q}</div>
+      <div class="opts">${optsHTML}</div>
+      <div class="fb ${fbCl} ${done?'show':''}">${fbTxt}</div>
+      <span class="ht" onclick="toggleHint(this)">Ver pista</span>
+      <div class="hbox">${c.hint}</div>
+      <div class="navrow">
+        ${idx>0?`<button class="nbtn" onclick="go(${idx-1})">← Anterior</button>`:''}
+        ${done&&idx<7?`<button class="nbtn pri" onclick="go(${idx+1})">Siguiente legajo →</button>`:''}
+        ${done&&idx===7?`<button class="nbtn pri" onclick="showFinal()">Abrir la caja fuerte →</button>`:''}
+      </div>
+    </div>`;
+  document.getElementById('sc').textContent=`Aciertos: ${score} / 8`;
+}
+
+function check(ci,oi){
+  if(answered[ci]!==undefined)return;
+  answered[ci]=oi;
+  if(oi===CH[ci].cor){score++;letters[ci]=CH[ci].cl;}
+  else{letters[ci]='?';}
+  render(ci);
+}
+
+function go(idx){cur=idx;render(idx);}
+
+function toggleHint(el){
+  const b=el.nextElementSibling;
+  b.classList.toggle('show');
+  el.textContent=b.classList.contains('show')?'Ocultar pista':'Ver pista';
+}
+
+function showFinal(){
+  document.getElementById('game').style.display='none';
+  document.getElementById('final').style.display='block';
+  document.getElementById('fsn').textContent=score+'/8';
+  const code=letters.map(l=>l||'?').join(' – ');
+  document.getElementById('fcode').textContent=code;
+  let msg='';
+  if(score===8)msg='Archivo completo. El código es SINDICAL. Lograron reconstruir el arco completo del movimiento obrero: del apogeo anarquista al ascenso sindicalista, pasando por la represión estatal y la fractura de 1915.';
+  else if(score>=6)msg='Archivo casi completo. La mayoría de los legajos fueron correctamente clasificados. Revisá los que fallaron: probablemente están en la distinción entre corrientes con estrategias similares.';
+  else if(score>=4)msg='Archivo parcial. Varios legajos siguen sin clasificar. El arco del período (del anarquismo al sindicalismo) no quedó claro. Volvé a las fuentes y prestá atención a la relación de cada corriente con el Estado.';
+  else msg='Archivo insuficiente. Los historiadores necesitan releer los documentos. Volvé al inicio.';
+  document.getElementById('fmsg').textContent=msg;
+}
+
+function restart(){
+  cur=0;score=0;answered=[];letters=[];
+  document.getElementById('final').style.display='none';
+  document.getElementById('intro').style.display='block';
+}
+</script>
+</body>
+</html>
